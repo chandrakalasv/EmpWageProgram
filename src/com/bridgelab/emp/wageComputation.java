@@ -4,9 +4,14 @@ public class wageComputation {
     public static int wagePerHour = 20;
     public int fullTimeHour = 8;
     public int partTimeHour = 4;
-    public int workingDay = 0;
-    int totalFullTimeEmpWage = 0;
-    int totalPartTimeEmpWage = 0;
+    public int totalWorkingDay = 0;
+    public int workingDayPerMonth = 20;
+    public int totalFullTimeEmpWage = 0;
+    public int totalPartTimeEmpWage = 0;
+    public int workingHour = 0;
+    public int workingHourPerMonth = 100;
+    public int fullTimeWorkingHour = 0;
+    public int partTimeWorkingHour = 0;
 
     public int empFullDayWage() {
         return wagePerHour * fullTimeHour;
@@ -17,29 +22,32 @@ public class wageComputation {
     }
 
     public void isEmpPresent() {
-        while(workingDay <= 20) {
+        while (workingHour <= workingHourPerMonth && totalWorkingDay <= workingDayPerMonth) {
             int checkAttendence = (int) (Math.random() * 10) % 3;
             switch (checkAttendence) {
                 case 1: {
                     int empFullDayWage = empFullDayWage();
                     totalFullTimeEmpWage = totalFullTimeEmpWage + empFullDayWage;
-                    System.out.println("emp is present and full time emp daily wage is" + " " + empFullDayWage);
+                    fullTimeWorkingHour = fullTimeWorkingHour + fullTimeHour;
+                    System.out.println("emp is present and full time emp daily wage is" + " " + " " + fullTimeWorkingHour + " " + empFullDayWage);
                     break;
                 }
                 case 2: {
                     int empPartTimeWage = empPartTimeWage();
                     totalPartTimeEmpWage = totalPartTimeEmpWage + empPartTimeWage;
-                    System.out.println("emp is present and part time emp daily wage is" + " " + empPartTimeWage);
+                    partTimeWorkingHour = partTimeWorkingHour + partTimeHour;
+                    System.out.println("emp is present and part time emp daily wage is" + " " + " " + empPartTimeWage);
                     break;
                 }
                 case 0:
                     System.out.println("emp is absent");
                     break;
             }
-            workingDay++;
+            totalWorkingDay++;
         }
-        System.out.println("total working day" + " " + workingDay);
-        System.out.println("total monthly wage is" + " " + (totalFullTimeEmpWage+totalPartTimeEmpWage));
+        System.out.println("total working day" + " " + totalWorkingDay);
+        System.out.println("total working hours is" + " " + (fullTimeWorkingHour + partTimeWorkingHour));
+        System.out.println("total monthly wage is" + " " + (totalFullTimeEmpWage + totalPartTimeEmpWage));
     }
 }
 
