@@ -1,7 +1,7 @@
 package com.bridgelab.emp;
 
 public class wageComputation {
-    public static int wagePerHour = 20;
+    public  int wagePerHour = 20;
     public int fullTimeHour = 8;
     public int partTimeHour = 4;
     public int totalWorkingDay = 0;
