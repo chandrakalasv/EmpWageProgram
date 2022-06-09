@@ -1,28 +1,27 @@
 package com.bridgelab.emp;
 
 public class WageComputation {
-    public static void isEmpPresent(int wagePerHour, int workingHourPerMonth, int workingDayPerMonth) {
-        int fullTimeHour = 8;
-        int partTimeHour = 4;
-        int totalWorkingDay = 0;
-        int totalFullTimeEmpWage = 0;
-        int totalPartTimeEmpWage = 0;
-        int workingHour = 0;
-        int fullTimeWorkingHour = 0;
-        int partTimeWorkingHour = 0;
-        while ((workingHour <= workingHourPerMonth) && (totalWorkingDay <= workingDayPerMonth)) {
+   public int totalWorkingDay = 0;
+   public int totalFullTimeEmpWage = 0;
+   public int totalPartTimeEmpWage = 0;
+   public int workingHour = 0;
+   public int fullTimeWorkingHour = 0;
+   public int partTimeWorkingHour = 0;
+
+   public WageComputation(String companyName, int wagePerHour, int workingHourPerMonth, int workingDayPerMonth) {
+        while ((workingHour <= workingHourPerMonth) && (totalWorkingDay < workingDayPerMonth)) {
             int checkAttendence = (int) (Math.random() * 10) % 3;
             switch (checkAttendence) {
                 case 1: {
-                    int empFullDayWage = wagePerHour * fullTimeHour;
+                    int empFullDayWage = wagePerHour * 8;
                     totalFullTimeEmpWage = totalFullTimeEmpWage + empFullDayWage;
-                    fullTimeWorkingHour = fullTimeWorkingHour + fullTimeHour;
+                    fullTimeWorkingHour = fullTimeWorkingHour + 8;
                     break;
                 }
                 case 2: {
-                    int empPartTimeWage = wagePerHour * partTimeHour;
+                    int empPartTimeWage = wagePerHour * 4;
                     totalPartTimeEmpWage = totalPartTimeEmpWage + empPartTimeWage;
-                    partTimeWorkingHour = partTimeWorkingHour + partTimeHour;
+                    partTimeWorkingHour = partTimeWorkingHour + 4;
                     break;
                 }
             }
