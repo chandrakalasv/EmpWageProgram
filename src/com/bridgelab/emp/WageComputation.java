@@ -1,6 +1,6 @@
 package com.bridgelab.emp;
 
-public class WageComputation {
+public class WageComputation implements IEmpWage {
 
     public String companyName;
     public int wagePerHour;
