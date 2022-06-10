@@ -1,6 +1,8 @@
 package com.bridgelab.emp;
 
 public interface IEmpWage {
-    public int calculateWage();
+    int calculateWage();
+    void display();
+    int dailyWage();
 }
 

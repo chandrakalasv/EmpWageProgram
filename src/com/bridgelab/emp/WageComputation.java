@@ -6,6 +6,8 @@ public class WageComputation implements IEmpWage {
     public int wagePerHour;
     public int workingHourPerMonth;
     public int workingDayPerMonth;
+    int totalWage;
+    int dailyWage;
 
     public WageComputation(String companyName, int wagePerHour, int workingHourPerMonth, int workingDayPerMonth) {
         this.companyName = companyName;
@@ -39,14 +41,21 @@ public class WageComputation implements IEmpWage {
             }
             totalWorkingDay++;
         }
-        return totalFullTimeEmpWage + totalPartTimeEmpWage;
+        totalWage = totalFullTimeEmpWage + totalPartTimeEmpWage;
+        return totalWage;
     }
     public int dailyWage() {
-        return ((wagePerHour * 8) + (wagePerHour * 4));
+        dailyWage = (wagePerHour * 8);
+        return dailyWage;
     }
 
     public void display() {
         System.out.println("company name is  " + companyName);
+    }
+
+    @Override
+    public String toString() {
+        return "\n" + companyName + "\nemp daily wage is " + dailyWage + "\nmonthly wage is " + totalWage;
     }
 }
 
