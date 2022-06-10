@@ -41,6 +41,9 @@ public class WageComputation implements IEmpWage {
         }
         return totalFullTimeEmpWage + totalPartTimeEmpWage;
     }
+    public int dailyWage() {
+        return ((wagePerHour * 8) + (wagePerHour * 4));
+    }
 
     public void display() {
         System.out.println("company name is  " + companyName);

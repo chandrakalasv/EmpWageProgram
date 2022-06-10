@@ -15,6 +15,7 @@ public class EmpWage {
 
         for (WageComputation wageComputation : companies) {
             wageComputation.display();
+            System.out.println("employee daily wage is " + wageComputation.dailyWage());
             System.out.println("employee monthly wage is " + wageComputation.calculateWage());
         }
     }
